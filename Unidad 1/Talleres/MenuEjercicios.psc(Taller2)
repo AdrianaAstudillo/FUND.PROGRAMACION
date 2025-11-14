@@ -19,7 +19,7 @@ Algoritmo MenuEjercicios
 			Escribir "Ingresa la nota o la calificacion obtenida"
 			Leer nota
 			si nota >= 90 Entonces
-				Escribir nota, "  es una calificación de sobresaliente"
+				Escribir nota, "  es una calificaciÃ³n de sobresaliente"
 			FinSi
 		3: Escribir "3. Par / Impar"
 			Escribir "Ingresa el valor a consultar"
@@ -35,3 +35,4 @@ Algoritmo MenuEjercicios
 			Escribir "No disponible"
 	FinSegun
 FinAlgoritmo
+
