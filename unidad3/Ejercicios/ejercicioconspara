@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Producto {
+    char codigo[4];
+    string nombre;
+    int cantidad;
+    float precio[3]; // 0: Pequeño, 1: Normal, 2: Jumbo
+
+    // Constructor con parámetros
+    Producto(char c[], string n, int cant, float p[]) {
+        for (int i = 0; i < 4; i++) {
+            codigo[i] = c[i];
+        }
+        nombre = n;
+        cantidad = cant;
+        for (int i = 0; i < 3; i++) {
+            precio[i] = p[i];
+        }
+    }
+};
+
+void mostrarProducto(Producto pr) {
+    string tamanios[3] = {"Pequeño", "Normal", "Jumbo"};
+    cout << "------------------------" << endl;
+    cout << "Codigo: " << pr.codigo << endl;
+    cout << "Nombre: " << pr.nombre << endl;
+    cout << "Cantidad: " << pr.cantidad << endl;
+    for (int i = 0; i < 3; i++) {
+        cout << "Precio " << tamanios[i] << ": " << pr.precio[i] << endl;
+    }
+}
+
+int main() {
+    int cantidadProductos;
+    cout << "Ingrese la cantidad de productos: ";
+    cin >> cantidadProductos;
+
+    Producto* productos[cantidadProductos];
+
+    for (int i = 0; i < cantidadProductos; i++) {
+        char cod[4];
+        string nom;
+        int cant;
+        float precios[3];
+
+        cout << "\nProducto " << i + 1 << endl;
+        cout << "Codigo: ";
+        cin >> cod;
+        cout << "Nombre: ";
+        cin >> nom;
+        cout << "Cantidad: ";
+        cin >> cant;
+        cout << "Ingrese precios (Pequeño, Normal, Jumbo):" << endl;
+        for (int j = 0; j < 3; j++) {
+            cin >> precios[j];
+        }
+
+        // Se usa el constructor con parámetros
+        productos[i] = new Producto(cod, nom, cant, precios);
+    }
+
+    cout << "\n\tListado de productos\n";
+    for (int i = 0; i < cantidadProductos; i++) {
+        cout << "\nProducto " << i + 1 << endl;
+        mostrarProducto(*productos[i]);
+    }
+
+    // Liberar memoria
+    for (int i = 0; i < cantidadProductos; i++) {
+        delete productos[i];
+    }
+
+    return 0;
+}
