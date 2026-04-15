@@ -1,0 +1,20 @@
+class Rectangulo{
+private float altura, base, área, perimetro;
+public float calcularPeri(){
+  return 2*altura+2*base;
+}
+public Rectangulo(float a, float b){
+altura =b;
+base = a;
+}
+
+public void calcularArea(){
+	area=base*altura;
+}
+public void mostrarResultados(){
+	System.out.prinln("El área Es="+area);
+	System.out.prinln("---------------");
+	System.out.println("El Perímetro es ="+calcularPeri())
+}
+
+}
