@@ -1,0 +1,12 @@
+public class PrincipalCalculoR{
+
+public static void main(String argv[]){
+ Rectangulo miRectangulo=new Rectangulo(10.f,20.f);
+miRectangulo.calcularArea();
+miRectangulo.mostrarResultados();
+Scanner ingreso=new Scanner(System.in);
+float base=ingreso.nextFloat();
+Rectangulo rec=new Rectangulo(ingreso.nextFloat(),base);
+rec.calcularArea();
+rec.mostrarResultados();
+}
